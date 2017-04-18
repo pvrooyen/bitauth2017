@@ -6,7 +6,7 @@ const config = {
   messagePath: 'data/message.txt',
   authtxPath: 'data/authhead.bitcointx',
   sigPath: 'data/signature.bitauthsig',
-  addCoinsFromPreviousIndex: true, // ignored when authheadIndex < 1
+  addCoinsFromPreviousIndex: false, // ignored when authheadIndex < 1
   authheadIndex: 0,
   identitySatoshis:  13000000,
   signingSatoshis:   13000000,

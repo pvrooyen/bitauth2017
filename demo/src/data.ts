@@ -12,6 +12,14 @@ export function getAuthhead() {
   return new Authhead(readFileSync(config.authtxPath).toString(), 'hex')
 }
 
+export function getAuthheadRaw() {
+  if (!existsSync(config.authtxPath)) {
+    console.error(chalk.red(`No authhead found. Run 'yarn genid' to create one.\n`))
+    process.exit(1)
+  }
+  return readFileSync(config.authtxPath).toString();
+}
+
 export function getSignature() {
   if (!existsSync(config.sigPath)) {
     console.error(chalk.red(`No signature found. Run 'yarn sign' to create one.\n`))
@@ -21,7 +29,7 @@ export function getSignature() {
 }
 
 export function getMessageBuffer() {
-  if (!existsSync(config.sigPath)) {
+  if (!existsSync(config.messagePath)) {
     console.error(chalk.red(`No message found. Add a message at ${config.messagePath} to continue.\n`))
     process.exit(1)
   }

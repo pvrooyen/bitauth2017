@@ -30,8 +30,10 @@ console.log(messageDigest.toString('hex'))
 
 // create sigtx
 let sigtx = new SignatureTransaction()
+//pvr: Get AuthHead from Blockchain??
+
 sigtx.addSigningOutput(authhead.getSigningOutput())
-sigtx.setMessageDigest(algorithm, messageDigest)
+sigtx.setMessageDigest(algorithm, messageDigest),
 sigtx.sign(keyring)
 
 let sigJson = sigtx.toJSON()

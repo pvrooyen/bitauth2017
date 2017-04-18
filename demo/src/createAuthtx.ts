@@ -52,6 +52,8 @@ request(
       }
       let coin = {
         height: utxo.height,
+        version: 0,
+        coinbase: false,
         value: utxo.satoshis,
         script: Script.fromRaw(utxo.scriptPubKey, 'hex'),
         // insight returns big-endian, we need little-endian
